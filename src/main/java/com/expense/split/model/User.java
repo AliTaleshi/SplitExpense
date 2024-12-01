@@ -2,6 +2,7 @@ package com.expense.split.model;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
+import java.util.List;
 
 import java.time.LocalDateTime;
 
@@ -18,4 +19,9 @@ public class User {
     @CreationTimestamp
     private LocalDateTime registrationDate;
 
+    @OneToMany(mappedBy = "payer", cascade = CascadeType.ALL)
+    private List<Expense> paidExpenses;
+
+    @ManyToMany(mappedBy = "debtors")
+    private List<Expense> debtorExpenses;
 }
