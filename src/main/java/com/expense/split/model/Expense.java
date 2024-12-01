@@ -2,20 +2,21 @@ package com.expense.split.model;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "USER")
-public class User {
+@Table(name = "EXPENSE")
+public class Expense {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String username;
-    private String password;
-    private String email;
+    private String description;
+    private Double amount;
     @CreationTimestamp
-    private LocalDateTime registrationDate;
-
+    private LocalDateTime date;
+    @UpdateTimestamp
+    private LocalDateTime updateDate;
 }
