@@ -2,22 +2,24 @@ package com.expense.split.model;
 
 import java.util.List;
 import jakarta.persistence.*;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "EXPENSE")
+@Table(name = "EXPENSE_TBL")
+@Data
 public class Expense {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
     private Double amount;
     @CreationTimestamp
-    private LocalDateTime date;
+    private LocalDateTime createDate;
     @UpdateTimestamp
     private LocalDateTime updateDate;
 
